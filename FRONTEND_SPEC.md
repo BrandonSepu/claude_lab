@@ -102,7 +102,7 @@ Un único campo:
 
 | Atributo | Valor |
 |---|---|
-| Tipo | `textarea` (una línea, Enter envía) |
+| Tipo | `input type="text"` (Enter envía) |
 | Placeholder | `"Escribe tu pregunta..."` |
 | Deshabilitado cuando | `loading() === true` |
 | Validación | Solo `required` + longitud mínima 1 |
@@ -116,7 +116,7 @@ Sin `ReactiveFormsModule`; se usa `[(ngModel)]` o referencia de template directa
 Solo dos estados, implementados con Signals:
 
 ```ts
-loading = signal(false);   // API en curso
+loading = signal(false);   // petición HTTP en progreso
 messages = signal<Message[]>([]);
 errorMessage = signal<string | null>(null);
 ```
