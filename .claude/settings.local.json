@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Usuario\\\\Desktop\\\\CLAUDE LAB\\\\claude_lab\" -Recurse | Where-Object { $_.PSIsContainer -and $_.Name -eq \"app\" } | Select-Object -First 1 -ExpandProperty FullName)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(Get-ChildItem -Recurse -Path src/app -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Usuario\\\\Desktop\\\\CLAUDE LAB\\\\claude_lab\\\\src\" -Recurse)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Usuario\\\\Desktop\\\\CLAUDE LAB\\\\claude_lab\" -Force)",
+      "Bash(Select-Object -Property Name, FullName)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(ng serve *)"
+    ]
+  }
+}

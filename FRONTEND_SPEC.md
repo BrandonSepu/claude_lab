@@ -10,7 +10,8 @@
 
 - Mostrar un chat full screen con historial de mensajes en memoria.
 - Aceptar la pregunta del usuario vía un campo de texto + botón enviar.
-- Llamar a `POST /api/chat` con la pregunta y mostrar la respuesta recibida.
+- Llamar a `POST http://localhost:7071/api/ConsultarFunction` con la pregunta y mostrar la respuesta (campo `answer`).
+- Enviar header `x-api-key: competencialab` en cada petición.
 - Mostrar un indicador de carga (`loading`) mientras la API responde.
 - Mostrar un mensaje de error genérico si la llamada falla.
 
@@ -82,10 +83,10 @@ Pulsa "Enviar" (o Enter)
 Mensaje usuario → messages[]
 loading = true, input deshabilitado
        ↓
-POST /api/chat  { question: string }
+POST /api/ConsultarFunction  { pregunta: string }
        ↓
   ┌── 2xx ──────────────────────────────┐
-  │ Mensaje bot → messages[]            │
+  │ Mensaje bot → messages[] (answer)   │
   │ loading = false                     │
   └─────────────────────────────────────┘
   ┌── Error ────────────────────────────┐
@@ -127,7 +128,9 @@ No existe estado global, store, ni BehaviorSubject. Todo vive en `ChatComponent`
 
 ## 9. Autorización y Permisos
 
-**NO APLICA.** Sin autenticación, sin guards, sin interceptores, sin roles.
+**Sin autenticación de usuario, sin guards, sin roles.**
+
+**Nota sobre API Key:** La API requiere enviar un header `x-api-key: competencialab` en cada petición. Esta no es autenticación de usuario, sino una clave de aplicación para validar que el cliente está autorizado a usar el endpoint. Se configura directamente en el servicio HTTP (interceptor o llamada directa) sin interacción del usuario.
 
 ---
 
@@ -146,24 +149,54 @@ Sin logging, sin reintentos, sin clasificación de errores.
 **Endpoint único:**
 
 ```
-POST /api/chat
+POST http://localhost:7071/api/ConsultarFunction
 Content-Type: application/json
+x-api-key: competencialab
 
 Request:
-{ "question": string }
+{
+  "pregunta": string
+}
 
 Response 200:
-{ "answer": string }
+{
+  "success": boolean,
+  "answer": string,           // Markdown con la respuesta principal
+  "infografiaUrl": string | null,
+  "vecesConsultada": number,
+  "normalizedQuestion": string,
+  "category": string
+}
 ```
 
-- La URL base se configura en `environment.ts` → `apiUrl: '/api'`.
+**Detalles de la respuesta:**
+- `success`: Indica si la consulta fue exitosa.
+- `answer`: Contenido en Markdown con la respuesta (es lo que se muestra en el chat).
+- `infografiaUrl`: URL opcional a una infografía relacionada (puede ser null).
+- `vecesConsultada`: Contador de veces que fue consultada esta pregunta.
+- `normalizedQuestion`: Pregunta normalizada (minúsculas, sin acentos).
+- `category`: Categoría temática de la consulta (ej. "General", "Ley Fintech").
+
+**Configuración en el servicio:**
+- La URL base se configura en `environment.ts` → `apiUrl: 'http://localhost:7071'`.
 - `chat.service.ts` expone un único método:
 
 ```ts
-send(question: string): Observable<{ answer: string }>
+send(pregunta: string): Observable<{ 
+  success: boolean; 
+  answer: string; 
+  infografiaUrl: string | null;
+  vecesConsultada: number;
+  normalizedQuestion: string;
+  category: string;
+}>
 ```
 
-Sin caché, sin headers adicionales, sin auth.
+**Headers requeridos:**
+- `Content-Type: application/json` (automático con `HttpClient`)
+- `x-api-key: competencialab` (debe enviarse en cada petición)
+
+La clave API se configura en un interceptor o se añade manualmente en cada llamada.
 
 ---
 
