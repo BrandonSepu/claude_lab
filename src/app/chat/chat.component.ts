@@ -29,6 +29,7 @@ export class ChatComponent implements OnInit {
   loading = signal(false);
   errorMessage = signal<string | null>(null);
   inputValue = signal('');
+  suggestedQuestions = signal<string[]>(SUGGESTED);
 
   constructor(private chatService: ChatService) {}
 
