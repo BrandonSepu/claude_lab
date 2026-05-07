@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'http://localhost:7071'
+  apiUrl: 'https://apilab-abcpg6enbtbqd5ea.chilecentral-01.azurewebsites.net/api'
 };

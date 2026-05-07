@@ -21,7 +21,23 @@
       "Bash(cat)",
       "Bash(chmod +x /tmp/verify.sh)",
       "Bash(/tmp/verify.sh)",
-      "Bash(bash /tmp/functional_test.sh)"
+      "Bash(bash /tmp/functional_test.sh)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem *)",
+      "PowerShell(New-Item *)",
+      "Read(//c/c/Users/Usuario/Desktop/CLAUDE LAB/claude_lab/src/styles/**)",
+      "PowerShell(Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.Screen]::PrimaryScreen | Select-Object -Property @{Name=\"Resolution\"; Expression={\"$\\($_.Bounds.Width\\)x$\\($_.Bounds.Height\\)\"}})",
+      "PowerShell(Start-Process \"http://localhost:4200\" -ErrorAction SilentlyContinue; Start-Sleep -Seconds 3; Write-Host \"Browser opened, waiting for page load...\")",
+      "Bash(powershell *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":4200\")",
+      "Bash(findstr \":7071\")",
+      "Bash(node test-responsive.js)",
+      "Bash(npx playwright *)",
+      "Bash(npm run *)",
+      "Bash(timeout 180 node test-responsive-detailed.js)",
+      "Bash(timeout 180 node test-responsive-final.js)"
     ]
   }
 }

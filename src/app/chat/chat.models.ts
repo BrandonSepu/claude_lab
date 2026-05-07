@@ -5,11 +5,12 @@ export interface Message {
 
 export interface ChatResponse {
   success: boolean;
-  answer: string;
+  respuesta: string;
   infografiaUrl: string | null;
+  fullurl: string | null;
   vecesConsultada: number;
-  normalizedQuestion: string;
-  category: string;
+  normalized: string;
+  categoria: string;
 }
 
 export interface ChatRequest {

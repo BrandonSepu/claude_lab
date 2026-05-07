@@ -72,11 +72,12 @@ export class ChatComponent implements OnInit {
         // Add bot message to history
         this.messages.update(msgs => [
           ...msgs,
-          { role: 'bot', text: response.answer }
+          { role: 'bot', text: response.respuesta }
         ]);
         this.loading.set(false);
       },
-      error: () => {
+      error: (err) => {
+        console.error('Error en API:', err);
         this.errorMessage.set('Error al consultar el servicio. Inténtalo de nuevo.');
         this.loading.set(false);
       }

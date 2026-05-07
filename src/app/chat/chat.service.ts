@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = `${environment.apiUrl}/api/ConsultarFunction`;
+  private apiUrl = `${environment.apiUrl}/ConsultarFunction`;
 
   constructor(private http: HttpClient) {}
 
