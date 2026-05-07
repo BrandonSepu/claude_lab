@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  apiUrl: 'https://apilab-abcpg6enbtbqd5ea.chilecentral-01.azurewebsites.net/api'\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

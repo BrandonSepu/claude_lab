@@ -55,6 +55,14 @@
               ],
               "outputHashing": "all"
             },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.staging.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -73,10 +81,13 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "normix-chatbot:build:production"
+              "buildTarget": "normix-chatbot:build:production"
+            },
+            "staging": {
+              "buildTarget": "normix-chatbot:build:staging"
             },
             "development": {
-              "browserTarget": "normix-chatbot:build:development"
+              "buildTarget": "normix-chatbot:build:development"
             }
           },
           "defaultConfiguration": "development"
