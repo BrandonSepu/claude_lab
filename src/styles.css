@@ -1,0 +1,29 @@
+/* src/styles.css */
+
+:root {
+  --color-accent: #ff9f1c;
+  --color-accent-light: #ffbf69;
+  --color-bg: #ffffff;
+  --color-chat-bg: #cbf3f0;
+  --color-primary: #2ec4b6;
+  --color-text: #333333;
+  --color-error: #d32f2f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
