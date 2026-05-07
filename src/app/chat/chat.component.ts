@@ -77,7 +77,6 @@ export class ChatComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        console.log('Error al consultar el servicio');
         this.errorMessage.set('Error al consultar el servicio. Inténtalo de nuevo.');
         this.loading.set(false);
       }
