@@ -1,0 +1,31 @@
+/* Color Palette */
+:root {
+  --paper: #faf8f3;
+  --ink: #1a1a1a;
+  --ink-soft: #666;
+  --ink-muted: #999;
+  --orange: #ff9500;
+  --orange-soft: #fff4e6;
+  --teal: #2ec4b6;
+  --teal-soft: #e8f5f3;
+  --rule: #d0c9c0;
+  --chat-bg: #f0ebe4;
+  --error: #e74c3c;
+}
+
+/* Sizing */
+:root {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+}
+
+/* Border Radius */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 999px;
+}
