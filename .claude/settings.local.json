@@ -10,7 +10,18 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Usuario\\\\Desktop\\\\CLAUDE LAB\\\\claude_lab\" -Force)",
       "Bash(Select-Object -Property Name, FullName)",
       "Bash(Select-Object Name, PSIsContainer)",
-      "Bash(ng serve *)"
+      "Bash(ng serve *)",
+      "Bash(npm install *)",
+      "Bash(powershell -Command \"Remove-Item -Recurse -Force node_modules, package-lock.json -ErrorAction SilentlyContinue; Write-Host 'Cleaned'\")",
+      "Bash(./node_modules/.bin/ng serve *)",
+      "Bash(curl -s http://localhost:4200/)",
+      "Bash(curl -s http://localhost:4200/main.js)",
+      "Bash(curl -X POST http://localhost:7071/api/ConsultarFunction -H 'Content-Type: application/json' -H 'x-api-key: competencialab' -d '{\"question\": \"Test\"}')",
+      "Bash(curl -s http://localhost:4200/styles.css)",
+      "Bash(cat)",
+      "Bash(chmod +x /tmp/verify.sh)",
+      "Bash(/tmp/verify.sh)",
+      "Bash(bash /tmp/functional_test.sh)"
     ]
   }
 }
