@@ -9,6 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { ChatService } from './chat.service';
 import { Message } from './chat.models';
 
+const SUGGESTED = [
+  "¿Qué es la Ley Fintech?",
+  "¿Cómo registro una operación?",
+  "Requisitos de KYC",
+  "¿Qué reporta la CNBV?",
+];
+
 @Component({
   selector: 'app-chat',
   standalone: true,
@@ -27,6 +34,17 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     // Component initialization if needed
+  }
+
+  onSuggestedQuestion(question: string): void {
+    this.inputValue.set(question);
+    // Focus input (requires template ref)
+    setTimeout(() => {
+      const inputElement = document.querySelector('.input-field') as HTMLInputElement;
+      if (inputElement) {
+        inputElement.focus();
+      }
+    }, 0);
   }
 
   onSendMessage(): void {
@@ -58,6 +76,7 @@ export class ChatComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
+        console.log('Error al consultar el servicio');
         this.errorMessage.set('Error al consultar el servicio. Inténtalo de nuevo.');
         this.loading.set(false);
       }
@@ -71,3 +90,5 @@ export class ChatComponent implements OnInit {
     }
   }
 }
+
+export { SUGGESTED };
